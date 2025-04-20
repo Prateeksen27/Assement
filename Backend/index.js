@@ -2,6 +2,7 @@ import express from 'express'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 import router from './routes/userRoutes.js'
+import todoRouter from './routes/todoRoutes.js'
 dotenv.config()
 const app = express()
 const port = process.env.PORT || 5000;
@@ -9,6 +10,7 @@ const port = process.env.PORT || 5000;
 app.use(express.json())
 //routes
 app.use('/auth/',router)
+app.use('/tasks/',todoRouter)
 app.get('/',(req,res)=>{
     res.send('Welcome to TodoMaster APIs...')
 })
